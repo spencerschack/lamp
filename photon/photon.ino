@@ -5,12 +5,15 @@
 const uint16_t pixels = 71;
 const double tau = 6.283185307179586;
 
-Adafruit_DotStar strip(pixels, A0, A1, DOTSTAR_BRG);
+Adafruit_DotStar left(pixels, A0, A1, DOTSTAR_BRG);
+Adafruit_DotStar right(pixels, A2, A3, DOTSTAR_BRG);
 
 void setup() {
   randomSeed(analogRead(0));
-  strip.begin();
-  strip.show();
+  left.begin();
+  right.begin();
+  left.show();
+  right.show();
 }
 
 double sin11(double input) {
@@ -115,7 +118,9 @@ void loop() {
   static uint32_t first = millis();
   double time = (double) (millis() - first) / 1000;
   for(uint16_t i = 0, ri = pixels - 1; i < pixels; i++, ri--) {
-    strip.setPixelColor(i, beta(i, time));
+    left.setPixelColor(i, beta(i, time));
+    right.setPixelColor(i, beta(i, time));
   }
-  strip.show();
+  left.show();
+  right.show();
 }
