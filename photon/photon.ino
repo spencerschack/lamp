@@ -2,7 +2,7 @@
 #include <array>
 #include <math.h>
 
-const uint16_t pixels = 71;
+const uint16_t pixels = 265;
 const double tau = 6.283185307179586;
 
 Adafruit_DotStar left(pixels, A0, A1, DOTSTAR_BRG);
@@ -106,11 +106,11 @@ uint32_t froth(double i, double time) {
 }
 
 uint32_t beta(double i, double time) {
-  return 20 * sweep(i, time, 5, 60, pixels) * (
-    0.3 * sin01(time + i / 20) +
-    0.3 * sin01(time / 2 + -i / 40) +
-    0.3 * sin01(-time / 3 + -i / 30) +
-    0.3 * sin01(time / 5 + i / 50)
+  return 100 * sweep(i, time, 5, 60, pixels) * (
+    0.25 * sin01(time + i / 20) +
+    0.25 * sin01(time / 2 + -i / 40) +
+    0.25 * sin01(-time / 3 + -i / 30) +
+    0.25 * sin01(time / 5 + i / 50)
   );
 }
 
