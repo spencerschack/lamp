@@ -5,8 +5,8 @@
 const uint16_t pixels = 265;
 const double tau = 6.283185307179586;
 
-Adafruit_DotStar left(pixels, A0, A1, DOTSTAR_BRG);
-Adafruit_DotStar right(pixels, A2, A3, DOTSTAR_BRG);
+Adafruit_DotStar left(pixels, D2, D3, DOTSTAR_BRG);
+Adafruit_DotStar right(pixels, D4, D5, DOTSTAR_BRG);
 
 void setup() {
   randomSeed(analogRead(0));
